@@ -1,0 +1,92 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  font-size: 24px;
+  color: #1b262c;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #ed6663;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+
+h5 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #ed6663;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+input.form-control {
+  width: 95%;
+}
+
+button {
+  margin-top: 2px;
+}
+
+a {
+  text-decoration: none;
+}
+.today-icon {
+  font-size: 100px;
+  color: #ffa372;
+}
+
+.today-temp {
+  font-size: 30px;
+  color: #0f4c81;
+}
+
+.today-descrip {
+  font-size: 16px;
+  color: #0f4c81;
+  text-transform: capitalize;
+}
+
+li.icon {
+  font-size: 40px;
+  color: #ffa372;
+}
+
+li.temp {
+  font-weight: bold;
+  color: #0f4c81;
+}
+
+li.precip {
+  font-size: 14px;
+  color: #0f4c81;
+}
+
+.card {
+  border-color: #0f4c81;
+  background-color: #fdeae0;
+}
+
+.col-2 {
+  padding: 2px;
+}
+
+.units {
+  font-size: 14px;
+  position: relative;
+  top: -12px;
+}
+
+.col-2 .card {
+  background-color: white;
+}
