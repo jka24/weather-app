@@ -17,12 +17,37 @@ function searchCity(city) {
   axios.get(apiUrl).then(showTemperature);
 }
 
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let day = days[date.getDay()];
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = "0" + hours;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+  return `${day} ${hours}:${minutes}`;
+}
+
 function showTemperature(response) {
   let currentTemp = Math.round(response.data.main.temp);
   let description = response.data.weather[0].description;
   let returnedCity = response.data.name;
   let humid = response.data.main.humidity;
   let wind = Math.round(response.data.wind.speed);
+  let date = response.data.dt * 1000;
 
   let todayTemp = document.querySelector("#today-temp-digits");
   todayTemp.innerHTML = currentTemp;
@@ -38,6 +63,9 @@ function showTemperature(response) {
 
   let todayWind = document.querySelector("#today-wind");
   todayWind.innerHTML = wind;
+
+  let dateDisplay = document.querySelector("#current-date");
+  dateDisplay.innerHTML = formatDate(date);
 }
 
 function getLocation(event) {
@@ -68,27 +96,6 @@ function tempToC(event) {
   let newTemp = document.querySelector("#today-temp-digits");
   newTemp.innerHTML = "19 ";
 }
-
-let now = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
-let day = days[now.getDay()];
-let hours = now.getHours();
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = "0" + minutes;
-}
-let date = `${day} ${hours}:${minutes}`;
-let dateDisplay = document.querySelector("h2");
-dateDisplay.innerHTML = date;
 
 let inputCity = document.querySelector("#city-form");
 inputCity.addEventListener("submit", handleSubmit);
