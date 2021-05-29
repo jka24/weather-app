@@ -41,9 +41,10 @@ button {
 a {
   text-decoration: none;
 }
-.today-icon {
-  font-size: 100px;
-  color: #ffa372;
+
+img {
+  width: 150px;
+  height: 150px;
 }
 
 .today-temp {
