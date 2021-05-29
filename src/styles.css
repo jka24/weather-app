@@ -102,6 +102,16 @@ li.precip {
   top: -12px;
 }
 
+.hide-link {
+  color: #0f4c81;
+  cursor: default;
+}
+
+.hide-link:hover {
+  text-decoration: none;
+  color: #0f4c81;
+}
+
 .col-2 .card {
   background-color: white;
 }

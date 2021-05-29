@@ -50,6 +50,8 @@ function showTemperature(response) {
   let date = response.data.dt * 1000;
   let icon = response.data.weather[0].icon;
 
+  fTemp = response.data.main.temp;
+
   let todayTemp = document.querySelector("#today-temp-digits");
   todayTemp.innerHTML = currentTemp;
 
@@ -96,14 +98,21 @@ function findLocation(position) {
 function tempToF(event) {
   event.preventDefault();
   let newTemp = document.querySelector("#today-temp-digits");
-  newTemp.innerHTML = "66 ";
+  convertC.classList.remove("hide-link");
+  convertF.classList.add("hide-link");
+  newTemp.innerHTML = Math.round(fTemp);
 }
 
 function tempToC(event) {
   event.preventDefault();
   let newTemp = document.querySelector("#today-temp-digits");
-  newTemp.innerHTML = "19 ";
+  convertF.classList.remove("hide-link");
+  convertC.classList.add("hide-link");
+  let convertedTemp = Math.round(((fTemp - 32) * 5) / 9);
+  newTemp.innerHTML = convertedTemp;
 }
+
+let fTemp = null;
 
 let inputCity = document.querySelector("#city-form");
 inputCity.addEventListener("submit", handleSubmit);
