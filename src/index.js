@@ -48,6 +48,7 @@ function showTemperature(response) {
   let humid = response.data.main.humidity;
   let wind = Math.round(response.data.wind.speed);
   let date = response.data.dt * 1000;
+  let icon = response.data.weather[0].icon;
 
   let todayTemp = document.querySelector("#today-temp-digits");
   todayTemp.innerHTML = currentTemp;
@@ -66,6 +67,13 @@ function showTemperature(response) {
 
   let dateDisplay = document.querySelector("#current-date");
   dateDisplay.innerHTML = formatDate(date);
+
+  let todayIcon = document.querySelector("#today-icon");
+  todayIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
+  todayIcon.setAttribute("alt", description);
 }
 
 function getLocation(event) {
