@@ -72,6 +72,10 @@ li.precip {
   color: #0f4c81;
 }
 
+.wrapper {
+  margin: 20px auto;
+}
+
 .card {
   border-color: #0f4c81;
   background-color: #fdeae0;
