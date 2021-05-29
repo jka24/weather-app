@@ -21,6 +21,8 @@ function showTemperature(response) {
   let currentTemp = Math.round(response.data.main.temp);
   let description = response.data.weather[0].description;
   let returnedCity = response.data.name;
+  let humid = response.data.main.humidity;
+  let wind = Math.round(response.data.wind.speed);
 
   let todayTemp = document.querySelector("#today-temp-digits");
   todayTemp.innerHTML = currentTemp;
@@ -30,6 +32,12 @@ function showTemperature(response) {
 
   let cityText = document.querySelector("#city-display");
   cityText.innerHTML = returnedCity;
+
+  let todayHumidity = document.querySelector("#today-humid");
+  todayHumidity.innerHTML = humid;
+
+  let todayWind = document.querySelector("#today-wind");
+  todayWind.innerHTML = wind;
 }
 
 function getLocation(event) {
